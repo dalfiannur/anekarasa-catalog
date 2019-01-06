@@ -1,8 +1,14 @@
 <template lang="pug">
   v-app
     div( class="header-background" )
+    v-btn( icon dark fab fixed left style="z-index: 4" )
+      v-icon
+        |menu
+    v-btn( fab fixed dark right icon style="z-index: 4" )
+      v-icon( color="white" )
+        |shopping_shop
     v-content( app style="z-index: 1" )
-      v-container( class="header" )
+      div( class="header" )
         v-layout( row wrap align-center justify-center fill-height )
           v-flex( xs3 )
             v-responsive( :aspect-ratio="2/1" )
@@ -14,7 +20,7 @@
       v-container( fluid grid-list-lg class="content" )
         v-layout( row wrap align-center justify-space-between fill-height)
           template( v-for="item in catalogs" )
-            v-flex( xs6 @click="" )
+            v-flex( xs6 @click="openCatalog(item.id)" )
               v-card( class="card" )
                 img( :src="loadIcon(item.icon)" width="50%" )
                 div( class="catalog-title" )
@@ -47,6 +53,11 @@ export default {
   methods: {
     loadIcon (icon) {
       return '/static/img/icons/' + icon
+    },
+
+    openCatalog (id) {
+      this.$store.dispatch('Catalog/setId', id)
+      this.$router.push('/catalog')
     }
   }
 }
@@ -61,6 +72,15 @@ export default {
   right: 0;
   z-index: 3;
   background-color: blue;
+}
+.menu {
+  z-index: 4;
+}
+.cart {
+  position: fixed;
+  z-index: 4;
+  right: -20px;
+  top: -5px;
 }
 .header-background {
   background-color: blue;
