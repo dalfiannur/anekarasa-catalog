@@ -8,7 +8,7 @@
       v-container( fluid grid-list-xl )
         v-layout( row wrap )
           template( v-for="item in items" )
-            v-flex( xs6 :key="item.id" )
+            v-flex( xs6 :key="item.id" @click="openDetailProduct(item.id)" )
               v-card( fill-height )
                 v-img( :src="loadImage(item.image)" :aspect-ratio="1" )
                 div( class="price" )
@@ -47,6 +47,11 @@ export default {
 
     toCurrency (number) {
       return toCurrency(number)
+    },
+
+    openDetailProduct (id) {
+      this.$store.dispatch('Product/setId', id)
+      this.$router.push('/product')
     }
   }
 }
