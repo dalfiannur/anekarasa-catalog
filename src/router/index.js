@@ -29,6 +29,11 @@ export default new Router({
       path: '/select-table',
       name: 'SelectTable',
       component: () => import('@/components/SelectTable')
+    },
+    {
+      path: '/reservation',
+      name: 'Reservation',
+      component: () => import('@/components/Reservation')
     }
   ]
 })

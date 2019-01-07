@@ -1,7 +1,7 @@
 <template lang="pug">
   v-app
     div( class="header-background" )
-    v-btn( icon dark fab fixed left style="z-index: 4" )
+    v-btn( icon dark fab fixed left style="z-index: 4" @click="$router.push('/reservation')" )
       v-icon
         |menu
     v-btn( fab fixed dark right icon style="z-index: 4" @click.native="$router.push('/cart')" )
