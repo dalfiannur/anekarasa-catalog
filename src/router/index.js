@@ -19,6 +19,16 @@ export default new Router({
       path: '/product',
       name: 'Product',
       component: () => import('@/components/Product')
+    },
+    {
+      path: '/cart',
+      name: 'Cart',
+      component: () => import('@/components/Cart')
+    },
+    {
+      path: '/select-table',
+      name: 'SelectTable',
+      component: () => import('@/components/SelectTable')
     }
   ]
 })

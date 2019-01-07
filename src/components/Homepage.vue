@@ -4,7 +4,7 @@
     v-btn( icon dark fab fixed left style="z-index: 4" )
       v-icon
         |menu
-    v-btn( fab fixed dark right icon style="z-index: 4" )
+    v-btn( fab fixed dark right icon style="z-index: 4" @click.native="$router.push('/cart')" )
       v-icon( color="white" )
         |shopping_shop
     v-content( app style="z-index: 1" )

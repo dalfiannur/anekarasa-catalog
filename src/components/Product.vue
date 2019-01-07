@@ -20,6 +20,7 @@
               label
                 |Banyak Pesanan
               v-select( :items="quantity" v-model="product.quantity" solo )
+              v-checkbox( v-model="bungkus" label="Bungkus" )          
       v-btn( fab bottom right fixed icon color="primary" @click="add" )
         v-icon
           |add
@@ -33,9 +34,11 @@ export default {
   data () {
     return {
       product: {
-        quantity: 0
+        quantity: 0,
+        detail: []
       },
-      quantity: []
+      quantity: [],
+      bungkus: false
     }
   },
 
@@ -66,6 +69,9 @@ export default {
 
     add () {
       if (this.product.quantity > 0) {
+        if (this.bungkus) {
+          this.product.detail = ['BUNGKUS']
+        }
         this.$store.dispatch('Cart/addProduct', this.product)
         this.$router.push('/catalog')
       }

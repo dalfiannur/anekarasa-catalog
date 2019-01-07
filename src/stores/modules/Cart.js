@@ -7,9 +7,9 @@ const mutations = {
     state.products.push(product)
   },
 
-  removeProduct (state, id) {
+  removeProduct (state, product) {
     state.products = state.products.filter(item => {
-      return item.id !== id
+      return item.id !== product.id
     })
   },
 
@@ -27,7 +27,7 @@ const actions = {
     commit('removeProduct', product)
   },
 
-  clearProduct ({ commit }) {
+  clearProducts ({ commit }) {
     commit('clearProducts')
   }
 }
